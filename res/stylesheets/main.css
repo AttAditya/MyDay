@@ -1,0 +1,15 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+@import "colors.css";
+
+* {
+    transition: 0.3s;
+}
+
+button {
+    transform: scale(1);
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MyDay</title>
+
+    <link rel="shortcut icon" href="res/images/MyDay.png">
+
+    <link rel="stylesheet" href="res/stylesheets/main.css">
+
+    <script src="https://kit.fontawesome.com/a63f2fde7e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+    <script src="res/scripts/main.js"></script>
+</head>
+<body class="has-navbar-fixed-top">
+    <nav class="navbar is-fixed-top is-primary">
+        <div class="navbar-brand">
+            <div class="navbar-item">
+                <a href="/">
+                    <button class="button">
+                        <img src="res/images/MyDay.png" alt="MyDay">
+                        <span class="ml-2 is-family-monospace has-text-weight-bold has-text-black">
+                            MyDay
+                        </span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container p-4 mt-2">
+        <!--div class="has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <img src="res/images/MyDay.png" alt="MyDay" width="100%" height="100%">
+            </div>
+        </div-->
+
+        <div class="columns">
+            <div class="column is-4 is-offset-4">
+                <button class="button is-primary is-fullwidth" onclick="document.getElementById('new-task-popup').classList.add('is-active');">
+                    <div class="column is-full">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="ml-2">
+                            New Task
+                        </span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <div class="notification has-background-grey-lighter" id="tasks">
+        </div>
+    </div>
+
+    <div id="new-task-popup" class="modal p-4" style="position: fixed; width: 100%; height: 100%;">
+        <div class="modal-background" onclick="document.getElementById('new-task-popup').classList.remove('is-active');"></div>
+        
+        <div class="modal-card">
+            <div class="modal-card-head">
+                <div class="modal-card-title">
+                    <i class="fa-solid fa-crow has-text-primary"></i>
+                    <span class="ml-2">
+                        Create New Task!
+                    </span>
+                </div>
+                <button class="delete" aria-label="close" onclick="document.getElementById('new-task-popup').classList.remove('is-active');"></button>
+            </div>
+
+            <div class="modal-card-body">
+                <div class="is-size-4 mb-2">
+                    What is your task?
+                </div>
+                <input type="text" id="create-new-task-input" class="input is-primary" placeholder="What do you want to do?">
+            </div>
+            
+            <div class="modal-card-foot">
+                <button id="create-new-task-button" class="button is-primary" onclick="create_new_task();">
+                    <i class="fa-solid fa-plus"></i>
+                    <span class="ml-2">
+                        Make
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    load_tasks();
+    draw_cards();
+</script>
+</html>
